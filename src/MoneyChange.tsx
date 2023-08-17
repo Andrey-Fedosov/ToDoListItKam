@@ -9,7 +9,6 @@ type BanknotPropsType = {
   banknots: string;
   value: number;
   number: string;
-  ReactElement:<any> 
 };
 
 // const moneyArray = [
