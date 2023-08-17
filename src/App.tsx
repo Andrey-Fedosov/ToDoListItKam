@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 // import { TODOList } from './TODOList';
-import { ButtonLesson } from './ButtonLesson';
+// import { ButtonLesson } from './ButtonLesson';
+// import { UseStateLesson } from './UseStateLesson';
+import { MoneyChange } from './MoneyChange';
 // import { TopCar } from './TopCars';
 // import { NewComponent } from './NewComponent';
 
 // import { BookStoreInfo } from './BookStoreInfo';
 
 function App() {
-  const truck = 'what to learn';
-  const truck2 = 'what to learn2';
+  /*   const truck = 'what to learn';
+  const truck2 = 'what to learn2'; */
 
   /*   const tasks1 = [
     { id: 1, title: 'HTML&CSS', isDone: true },
@@ -119,6 +121,17 @@ function App() {
     { manufacturer: 'Audi', model: 'rs6' },
   ]; */
 
+  const [moneyArray, setMoney] = useState([
+    { banknots: 'Dollars', value: 100, number: ' a1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' z1234567890' },
+    { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
+    { banknots: 'Dollars', value: 100, number: ' e1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' c1234567890' },
+    { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' x1234567890' },
+    { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
+  ]);
+
   return (
     <div className="App">
       {/*       <TODOList truck1={truck} task={tasks1} />
@@ -126,7 +139,9 @@ function App() {
       {/* <NewComponent students={students} /> */}
       {/* <BookStoreInfo bookList={bookList} /> */}
       {/* <TopCar carList={topCars} /> */}
-      <ButtonLesson />
+      {/* <ButtonLesson /> */}
+      {/* <UseStateLesson /> */}
+      <MoneyChange wallet={moneyArray} />
     </div>
   );
 }
