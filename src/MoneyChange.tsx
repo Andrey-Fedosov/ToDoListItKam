@@ -11,57 +11,26 @@ type BanknotPropsType = {
   number: string;
 };
 
-// const moneyArray = [
-//   { banknots: 'Dollars', value: 100, number: ' a1234567890' },
-//   { banknots: 'Dollars', value: 50, number: ' z1234567890' },
-//   { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
-//   { banknots: 'Dollars', value: 100, number: ' e1234567890' },
-//   { banknots: 'Dollars', value: 50, number: ' c1234567890' },
-//   { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
-//   { banknots: 'Dollars', value: 50, number: ' x1234567890' },
-//   { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
-// ];
-
-/* console.log(
-    moneyArray.filter((m) => {
-      return m.banknots === 'RUBLS';
-    })
-    );
-    console.log(
-      moneyArray.filter((m) => {
-        return m.banknots === 'Dollars';
-      })
-      );
-      console.log(
-        moneyArray.filter((m) => {
-          return m.banknots;
-        })
-        ); */
-
 export const MoneyChange = (props: WalletType) => {
-  // let filteredArray: any = [];
   const [filter, setFilter] = useState('all');
+
   const onClickHandler = (btnName: string) => {
     setFilter(btnName);
-    console.log(filter);
+    // console.log(filter);
   };
 
-  let filteredArray = props.wallet.filter((el) => {
-    return el.banknots;
-  });
+  let filteredArray = props.wallet.filter((el) => el.banknots);
 
   if (filter === 'rubles') {
-    return (filteredArray = props.wallet.filter((el) => {
-      return el.banknots === 'RUBLS';
-    }));
-  } else if (filter === 'dollars') {
-    return (filteredArray = props.wallet.filter((el) => {
-      return el.banknots === 'Dollars';
-    }));
-  } else if (filter === 'all') {
     filteredArray = props.wallet.filter((el) => {
-      return el.banknots;
+      return el.banknots === 'RUBLS';
     });
+  } else if (filter === 'dollars') {
+    filteredArray = props.wallet.filter((el) => {
+      return el.banknots === 'Dollars';
+    });
+  } else if (filter === 'all') {
+    filteredArray = props.wallet.filter((el) => el.banknots);
   }
 
   return (
