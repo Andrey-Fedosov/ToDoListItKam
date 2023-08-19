@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
-// import { TODOList } from './TODOList';
+import { TODOList } from './TODOList';
 // import { ButtonLesson } from './ButtonLesson';
 // import { UseStateLesson } from './UseStateLesson';
-import { MoneyChange } from './MoneyChange';
+// import { MoneyChange } from './MoneyChange';
 // import { TopCar } from './TopCars';
 // import { NewComponent } from './NewComponent';
 
 // import { BookStoreInfo } from './BookStoreInfo';
 
 function App() {
-  /*   const truck = 'what to learn';
-  const truck2 = 'what to learn2'; */
+  const truck = 'what to learn';
+  const truck2 = 'what to learn2';
 
-  /*   const tasks1 = [
+  const tasks1 = [
     { id: 1, title: 'HTML&CSS', isDone: true },
     { id: 2, title: 'JS', isDone: true },
     { id: 3, title: 'ReactRouter', isDone: false },
@@ -21,6 +21,8 @@ function App() {
     { id: 5, title: 'ReactJS', isDone: true },
     { id: 6, title: 'ReactJS', isDone: false },
   ];
+  let [task, setTask] = useState(tasks1);
+
   const tasks2 = [
     { id: 1, title: 'Hello world', isDone: true },
     { id: 2, title: 'I am Happy', isDone: false },
@@ -28,7 +30,7 @@ function App() {
     { id: 4, title: 'A-Yo man', isDone: false },
     { id: 5, title: 'Yo-yo', isDone: false },
     { id: 6, title: 'Yo-yo-yo', isDone: false },
-  ]; */
+  ];
 
   /* const students = [
     {
@@ -121,7 +123,7 @@ function App() {
     { manufacturer: 'Audi', model: 'rs6' },
   ]; */
 
-  const [moneyArray, setMoney] = useState([
+  /*   const [moneyArray, setMoney] = useState([
     { banknots: 'Dollars', value: 100, number: ' a1234567890' },
     { banknots: 'Dollars', value: 50, number: ' z1234567890' },
     { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
@@ -130,18 +132,18 @@ function App() {
     { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
     { banknots: 'Dollars', value: 50, number: ' x1234567890' },
     { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
-  ]);
+  ]); */
 
   return (
     <div className="App">
-      {/*       <TODOList truck1={truck} task={tasks1} />
-      <TODOList truck1={truck2} task={tasks2} /> */}
+      <TODOList truck1={truck} task={tasks1} />
+      <TODOList truck1={truck2} task={tasks2} />
       {/* <NewComponent students={students} /> */}
       {/* <BookStoreInfo bookList={bookList} /> */}
       {/* <TopCar carList={topCars} /> */}
       {/* <ButtonLesson /> */}
       {/* <UseStateLesson /> */}
-      <MoneyChange wallet={moneyArray} />
+      {/* <MoneyChange wallet={moneyArray} /> */}
     </div>
   );
 }
