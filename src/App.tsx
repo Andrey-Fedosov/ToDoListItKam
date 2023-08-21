@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { TODOList } from './TODOList';
+import { BanknotFilter } from './components/banknotFilter/BanknotFilter';
 
 function App() {
   const truck = 'what to learn';
@@ -25,8 +26,9 @@ function App() {
 
   return (
     <div className="App">
-      <TODOList truck1={truck} task={tasks1} />
-      <TODOList truck1={truck2} task={tasks2} />
+      <BanknotFilter />
+      {/* <TODOList truck1={truck} task={tasks1} /> */}
+      {/* <TODOList truck1={truck2} task={tasks2} /> */}
     </div>
   );
 }
