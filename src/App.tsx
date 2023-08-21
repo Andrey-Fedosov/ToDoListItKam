@@ -10,63 +10,63 @@ import { TODOList } from './TODOList';
 // import { BookStoreInfo } from './BookStoreInfo';
 
 function App() {
-  const truck = 'what to learn';
-  const truck2 = 'what to learn2';
+  const taskListTitle1 = 'what to learn';
+  // const taskListTitle2 = 'what to learn2';
 
-  const tasks1 = [
+  let tasks1 = [
     { id: 1, title: 'HTML&CSS', isDone: true },
     { id: 2, title: 'JS', isDone: true },
     { id: 3, title: 'ReactRouter', isDone: false },
     { id: 4, title: 'ReactJS', isDone: false },
     { id: 5, title: 'ReactJS', isDone: true },
     { id: 6, title: 'ReactJS', isDone: false },
+    { id: 7, title: 'ReactJS', isDone: true },
   ];
-  let [task, setTask] = useState(tasks1);
 
-  const tasks2 = [
-    { id: 1, title: 'Hello world', isDone: true },
-    { id: 2, title: 'I am Happy', isDone: false },
-    { id: 3, title: 'Yo', isDone: false },
-    { id: 4, title: 'A-Yo man', isDone: false },
-    { id: 5, title: 'Yo-yo', isDone: false },
-    { id: 6, title: 'Yo-yo-yo', isDone: false },
-  ];
+  // const tasks2 = [
+  //   { id: 1, title: 'Hello world', isDone: true },
+  //   { id: 2, title: 'I am Happy', isDone: false },
+  //   { id: 3, title: 'Yo', isDone: false },
+  //   { id: 4, title: 'A-Yo man', isDone: false },
+  //   { id: 5, title: 'Yo-yo', isDone: false },
+  //   { id: 6, title: 'Yo-yo-yo', isDone: false },
+  // ];
 
   /* const students = [
-    {
-      name: 'John',
-      age: 20,
-      id: 67,
-      isMarried: true,
-    },
-    {
-      name: 'Jane',
-      age: 21,
-      id: 46,
-      isMarried: false,
-    },
-    {
-      name: 'Mary',
-      age: 22,
-      id: 72,
-      isMarried: false,
-    },
-    {
-      name: 'Peter',
-      age: 23,
-      id: 78,
-      isMarried: true,
-    },
-    {
-      name: 'Susan',
-      age: 24,
-      id: 41,
-      isMarried: false,
-    },
-    {
-      name: 'David',
-      age: 25,
-      id: 45,
+      {
+        name: 'John',
+        age: 20,
+        id: 67,
+        isMarried: true,
+      },
+      {
+        name: 'Jane',
+        age: 21,
+        id: 46,
+        isMarried: false,
+      },
+      {
+        name: 'Mary',
+        age: 22,
+        id: 72,
+        isMarried: false,
+      },
+      {
+        name: 'Peter',
+        age: 23,
+        id: 78,
+        isMarried: true,
+      },
+      {
+        name: 'Susan',
+        age: 24,
+        id: 41,
+        isMarried: false,
+      },
+      {
+        name: 'David',
+        age: 25,
+        id: 45,
       isMarried: true,
     },
     {
@@ -133,11 +133,39 @@ function App() {
     { banknots: 'Dollars', value: 50, number: ' x1234567890' },
     { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
   ]); */
+  // const deleteTask = () => {
+  //   taskList = taskList.filter((t) => t.id === btnId);
+  // };
+  let [taskList, setTaskList] = useState(tasks1);
+  let [filter, setFilter] = useState('active');
+
+  const changeFilter = (value: string) => setFilter(value);
+
+  let tasksForToDoList = taskList;
+
+  if (filter === 'active') {
+    tasksForToDoList = taskList.filter((t) => t.isDone === false);
+  } else if (filter === 'complete') {
+    tasksForToDoList = taskList.filter((t) => t.isDone === true);
+  }
+
+  const deleteTask = (id: number) => {
+    // alert(props.buttonId);
+
+    taskList = taskList.filter((t) => t.id !== id);
+    setTaskList(taskList);
+  };
 
   return (
     <div className="App">
-      <TODOList truck1={truck} task={tasks1} />
-      <TODOList truck1={truck2} task={tasks2} />
+      <TODOList
+        taskName={taskListTitle1}
+        task={tasksForToDoList}
+        deleteTask={deleteTask}
+        changeFilter={changeFilter}
+      />
+      {/* <TODOList taskName={taskListTitle2} task={tasks2} /> */}
+
       {/* <NewComponent students={students} /> */}
       {/* <BookStoreInfo bookList={bookList} /> */}
       {/* <TopCar carList={topCars} /> */}
