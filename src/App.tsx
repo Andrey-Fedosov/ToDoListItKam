@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { TODOList } from "./TODOList";
+import { TODOList } from "./components/TODOList";
 
 function App() {
   const listName1 = "what to learn";
