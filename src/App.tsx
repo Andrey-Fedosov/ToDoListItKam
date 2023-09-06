@@ -3,8 +3,8 @@ import "./App.css";
 import { TODOList } from "./TODOList";
 
 function App() {
-  const truck1 = "what to learn";
-  const truck2 = "what to learn2";
+  const listName1 = "what to learn";
+  const listName2 = "what to learn2";
 
   const tasks1 = [
     { id: 1, title: "HTML&CSS", isDone: true },
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <TODOList />
+      <TODOList listName={listName1} taskList={tasks1} />
     </div>
   );
 }
