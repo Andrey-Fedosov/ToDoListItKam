@@ -14,6 +14,9 @@ function App() {
     { id: 5, title: "ReactJS", isDone: true },
     { id: 6, title: "ReactJS", isDone: false },
   ];
+
+  const [tasks, setTasks] = useState(tasks1);
+
   const tasks2 = [
     { id: 1, title: "Hello world", isDone: true },
     { id: 2, title: "I am Happy", isDone: false },
@@ -23,9 +26,13 @@ function App() {
     { id: 6, title: "Yo-yo-yo", isDone: false },
   ];
 
+  const deleteTask = (taskId: number) => {
+    return setTasks(tasks.filter((t) => t.id !== taskId));
+  };
+
   return (
     <div className="App">
-      <TODOList listName={listName1} taskList={tasks1} />
+      <TODOList listName={listName1} taskList={tasks} deleteTask={deleteTask} />
     </div>
   );
 }
