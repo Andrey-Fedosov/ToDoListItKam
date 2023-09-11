@@ -10,11 +10,14 @@ type taskListPropsType = {
 };
 
 type todolistPropsType = {
+  key: string;
+  id: string;
+  // todolistId: string;
   listName: string;
   taskList: taskListPropsType[];
   deleteTask: (taskId: string) => void;
   addTask: (title: string) => void;
-  changeFilter: (filterValue: filterValuePropsType) => void;
+  changeFilter: (filterValue: filterValuePropsType, todolistId: string) => void;
   changeStatus: (taskId: string, isDone: boolean) => void;
   filter: string;
 };
@@ -38,8 +41,11 @@ export const TODOList = (props: todolistPropsType) => {
     }
   };
 
-  const changeFilterHandler = (filter: filterValuePropsType) => {
-    props.changeFilter(filter);
+  const changeFilterHandler = (
+    filter: filterValuePropsType,
+    todolistId: string
+  ) => {
+    props.changeFilter(filter, todolistId);
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -116,21 +122,21 @@ export const TODOList = (props: todolistPropsType) => {
         className={props.filter === "all" ? "active-filter" : ""}
         btnName="All"
         callback={() => {
-          changeFilterHandler("all");
+          changeFilterHandler("all", props.id);
         }}
       />
       <Button
         className={props.filter === "complete" ? "active-filter" : ""}
         btnName="Complete"
         callback={() => {
-          changeFilterHandler("complete");
+          changeFilterHandler("complete", props.id);
         }}
       />
       <Button
         className={props.filter === "active" ? "active-filter" : ""}
         btnName="Active"
         callback={() => {
-          changeFilterHandler("active");
+          changeFilterHandler("active", props.id);
         }}
       />
     </div>
